@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="d-block mb-3">
+        <a [routerLink]="'/admin/category-list'">Category List</a> > Edit
+        Category
+    </div>
+</div>
+<div class="container">
+    <h2>Edit Category</h2>
+    <form [formGroup]="editCategoryForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+            <label for="categoryName" class="form-label">Id</label>
+            <input type="text" class="form-control" [value]="categoryId" disabled>
+        </div>
+        <div class="mb-3">
+            <label for="categoryName" class="form-label">Category Name</label>
+            <input type="text" class="form-control" id="categoryName"
+                placeholder="Enter category name"
+                formControlName="name">
+        </div>
+        <div class="mb-3">
+            <label for="categoryUrl" class="form-label">Category Url</label>
+            <input type="text" class="form-control" id="categoryUrl"
+                placeholder="Enter category url" formControlName="urlHandle">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>

@@ -8,5 +8,9 @@ export const routes: Routes = [
     {
         path: 'admin/add-category',
         loadComponent: () => import('./core/features/category/add-category/add-category').then(m => m.AddCategory)
+    },
+    {
+        path: 'admin/edit-category/:id',
+        loadComponent: () => import('./core/features/category/edit-category/edit-category').then(m => m.EditCategory)
     }
 ];

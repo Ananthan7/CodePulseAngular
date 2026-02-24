@@ -17,6 +17,7 @@ Error loading categories.
                     <th scope="col">id</th>
                     <th scope="col">Name</th>
                     <th scope="col">Url Handle</th>
+                    <th scope="col"> </th>
                 </tr>
             </thead>
             <tbody>
@@ -25,6 +26,7 @@ Error loading categories.
                         <th scope="row">{{category.id}}</th>
                         <td>{{category.name}}</td>
                         <td>{{category.urlHandle}}</td>
+                        <td><a class="btn btn-light" [routerLink]="`/admin/edit-category/${category.id}`">Edit</a></td>
                     </tr>
                 }
             </tbody>

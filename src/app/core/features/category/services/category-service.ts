@@ -1,5 +1,5 @@
 import { HttpClient, httpResource } from '@angular/common/http';
-import { inject, Injectable, signal } from '@angular/core';
+import { inject, Injectable, InputSignal, signal } from '@angular/core';
 import { AddCategory, Category } from '../models/category.model';
 import { environment } from '../../../../../environments/environment';
 
@@ -11,6 +11,7 @@ export class CategoryService {
   private baseUrl = environment.apiBaseUrl
 
   addCategoryStatus = signal<'success' | 'error' | 'loading' | 'idle'>('idle');
+  editCategoryStatus = signal<'success' | 'error' | 'loading' | 'idle'>('idle');
 
   // use: add a category to the database
   addCategory(category: AddCategory) {
@@ -27,6 +28,10 @@ export class CategoryService {
   // use: get all categories from the database
   getCategories() {
     return httpResource<Category[]>(()=> `${this.baseUrl}/categories`);
+  }
+
+  getCategoriesById(id: string) {
+    return httpResource<Category>(()=> `${this.baseUrl}/categories/${id}`);
   }
 
 }

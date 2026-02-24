@@ -6,8 +6,8 @@ import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-add-category',
-  imports: [CommonModule, ReactiveFormsModule, RouterModule],
   templateUrl: './add-category.html',
+  imports: [CommonModule, ReactiveFormsModule, RouterModule],
   providers: [CategoryService],
   styleUrl: './add-category.css',
 })
