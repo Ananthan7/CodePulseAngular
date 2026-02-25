@@ -3,6 +3,7 @@ import { CategoryService } from '../services/category-service';
 import { Router, RouterModule } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Category } from '../models/category.model';
 
 @Component({
   selector: 'app-edit-category',
@@ -41,6 +42,7 @@ export class EditCategory {
     effect(()=>{
       if(this.categoryService.editCategoryStatus() === 'success'){
         this.router.navigateByUrl('/admin/category-list')
+        alert('Category edited successfully!');
       } else if(this.categoryService.editCategoryStatus() === 'error'){
         alert('Failed to edit category. Please try again.');
       }
@@ -48,8 +50,12 @@ export class EditCategory {
   }
   onSubmit() {
     if (this.editCategoryForm.valid) {
-      const categoryData = this.editCategoryForm.value;
-      this.categoryService.addCategory(categoryData);
+      const categoryData:Category = {
+        id: this.categoryId,
+        ...this.editCategoryForm.value,
+      }
+
+      this.categoryService.editCategory(categoryData);
 
       
     } else {

@@ -34,4 +34,18 @@ export class CategoryService {
     return httpResource<Category>(()=> `${this.baseUrl}/categories/${id}`);
   }
 
+  editCategory(category: Category) {
+    this.http.put(`${this.baseUrl}/categories/${category.id}`, category).subscribe({
+      next: (response)=>{
+        this.editCategoryStatus.set('success');
+      },
+      error: (error)=>{
+        this.editCategoryStatus.set('error');
+      }
+    })
+  }
+  deleteCategory(id: string) {
+    return this.http.delete(`${this.baseUrl}/categories/${id}`)
+  }
+
 }

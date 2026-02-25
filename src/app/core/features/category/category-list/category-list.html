@@ -27,6 +27,7 @@ Error loading categories.
                         <td>{{category.name}}</td>
                         <td>{{category.urlHandle}}</td>
                         <td><a class="btn btn-light" [routerLink]="`/admin/edit-category/${category.id}`">Edit</a></td>
+                        <td><a class="btn btn-light" (click)="deleteCategory(category)">Delete</a></td>
                     </tr>
                 }
             </tbody>
